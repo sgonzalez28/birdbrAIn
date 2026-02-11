@@ -30,19 +30,13 @@ Trained model .pkl files are not included in this repository but can be regenera
 
 ## Computational Environment
 All models were trained using:
-> Python 3.10
-
-> fastai
-
-> PyTorch
-
-> Albumentations
-
-> scikit-learn
-
-> rembg (for background removal)
-
-> Captum (for attribution visualization)
+- Python 3.10
+- fastai
+- PyTorch
+- Albumentations
+- scikit-learn
+- rembg (for background removal)
+- Captum (for attribution visualization)
 
 Package details and requirements are available in *requirements.txt*.
 
