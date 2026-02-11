@@ -19,7 +19,6 @@ species-id-supplement/
 ├── src/
 │   ├── trait_training.py
 │   ├── inference_pipeline.py
-│   ├── explain_model.py
 │
 ├── configs/
 │   ├── train_*.yaml
