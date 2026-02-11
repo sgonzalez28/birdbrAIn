@@ -49,7 +49,7 @@ Package details and requirements are available in *requirements.txt*.
 
 GPU acceleration (CUDA) was used during training but is not required for inference.
 
-## Part I — Training Trait Models
+## Part I — Training Trait Models // trait_training.py
 
 Each morphological trait was trained independently using transfer learning with a ResNet34 backbone.
 
@@ -99,14 +99,55 @@ Output model name
 
 To reproduce the full ensemble, repeat training for each trait described in the manuscript.
 
-## Part II — Ensemble Inference Pipeline
+## Part II — Ensemble Inference Pipeline // inference_pipeline.py
 
-The inference pipeline performs:
-Background removal using rembg
-Trait-level model predictions
-Per-trait majority voting (mode)
-Rule-based ensemble scoring
-Final species and sex classification
+This inference pipeline implements a **trait-level ensemble approach** developed for fine-scale morphological species identification. Rather than training a single global classifier, we trained independent convolutional neural networks (CNNs) on specific anatomical regions corresponding to biologically meaningful traits.
+
+In this study, models were trained on the following body regions and associated traits:
+
+- Overall back  
+- Head (e.g., green head region)  
+- Speculum  
+- Tail  
+- Sex-specific plumage features  
+
+Each trained model produces a trait-level prediction. The inference script aggregates predictions across all available trait models to generate a final species classification. Model names, configuration files, and scoring logic explicitly reflect these anatomical regions to maintain transparency and interpretability consistent with the manuscript.
+
+The directory structure, configuration files, and model naming conventions directly mirror the biological framework used in the study. Each trait corresponds to:
+
+- A dedicated image subset (cropped to a specific body region)  
+- A trait-specific metadata column  
+- An independently trained CNN  
+- A saved model checkpoint named after that anatomical region  
+
+This structure ensures that:
+
+1. Trait-level predictions remain interpretable.  
+2. The ensemble decision process can be traced back to specific morphological features.  
+3. The workflow aligns directly with the methodological description in the paper.  
+
+---
+
+### Adapting the Pipeline to Other Systems
+
+Although this repository reflects the specific traits and species used in this study, the framework itself is modular and extensible.
+
+Users can adapt the code to other species or classification tasks by:
+
+- Replacing trait names in configuration files  
+- Updating metadata column names  
+- Providing new image directories corresponding to alternative anatomical regions  
+- Adjusting ensemble thresholds or scoring logic as appropriate  
+
+The pipeline does not depend on duck-specific biology; it depends only on:
+
+1. Region-specific image inputs  
+2. A label per trait (binary or categorical)  
+3. A set of independently trained models to aggregate  
+
+By modifying configuration files rather than core code, users can extend this approach to other taxa, morphological systems, or even non-biological fine-grained classification problems.
+
+---
 
 ### Running Inference
 python src/inference_pipeline.py \
