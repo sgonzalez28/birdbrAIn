@@ -1,5 +1,27 @@
-model_dir: "models/"
-input_dir: "path/to/specimen_folder/"
+remove_background: true
 
 species_threshold_low: 4
 species_threshold_high: 8
+
+# Model name → exported file
+models:
+  Green Head: "greenhead.pkl"
+  Speculum: "speculum.pkl"
+  Overall Back: "overallback.pkl"
+  Overall Breast and Belly: "overallbreastandbelly.pkl"
+  Greater Secondary Coverts: "seccovert.pkl"
+  Breast and Belly: "breastbelly.pkl"
+  Face and Neck: "faceneck.pkl"
+  Lesser Covert Pattern: "lessercovPatt.pkl"
+  Primary Covert Pattern: "primarycovPatt.pkl"
+  Outer 2 Tail Feathers: "tailfeathers.pkl"
+  Sex: "sex.pkl"
+
+# Folder → models to apply
+folder_models:
+  head: ["Green Head", "Face and Neck", "Sex"]
+  belly: ["Overall Breast and Belly", "Breast and Belly"]
+  wing: ["Speculum", "Greater Secondary Coverts",
+         "Lesser Covert Pattern", "Primary Covert Pattern"]
+  back: ["Overall Back"]
+  tail: ["Outer 2 Tail Feathers"]
