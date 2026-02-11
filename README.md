@@ -2,11 +2,11 @@
 Modular trait-based deep learning framework for fine-grained species identification using ensemble CNN classification.
 
 # Trait-Based Ensemble Classification Framework
-Supplementary Code for: [Paper Title Here]
+Supplementary Code for: _Interpretable Wildlife Classification by Coupling Genetics, Scoring Systems, and Computer Vision_
 
 This repository contains the full training and inference pipeline used in:
 
-[Authors]. [Year]. [Paper Title]. [Journal Name].
+Gonzalez, S et al. 2026. Interpretable Wildlife Classification by Coupling Genetics, Scoring Systems, and Computer Vision. (Journal)
 
 It implements a modular, trait-based convolutional neural network (CNN) framework for fine-grained species identification using morphological subregions.
 
