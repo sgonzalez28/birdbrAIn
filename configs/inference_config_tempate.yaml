@@ -1,0 +1,5 @@
+model_dir: "models/"
+input_dir: "path/to/specimen_folder/"
+
+species_threshold_low: 4
+species_threshold_high: 8

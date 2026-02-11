@@ -1,0 +1,18 @@
+trait_name: "TRAIT_NAME"
+
+image_dir: "path/to/images/"
+df0_path: "path/to/species1_meta.csv"
+df1_path: "path/to/species2_meta.csv"
+
+trait_column: "column_name"
+
+image_size: 600
+image_suffix: ".JPG"
+valid_pct: 0.2
+
+architecture: "resnet34"
+epochs_stage1: 20
+epochs_stage2: 10
+
+save_name_stage1: "stage1_trait"
+save_name_stage2: "stage2_trait"
